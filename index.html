@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b2118">
+  <title>Gramsaarthi | Rural Development for Everyone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <a class="brand" href="#" id="brandHome" aria-label="Gramsaarthi home">
+        <span class="brand-mark">🌿</span>
+        <span><strong>GRAMSAARTHI</strong><small>One app. Every role. Endless opportunities.</small></span>
+      </a>
+      <div class="top-actions">
+        <span class="location-pill">⌖ Rural India</span>
+        <span class="weather-pill">☀️ <b>28°C</b><small>Partly cloudy</small></span>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme" title="Switch theme"><span id="themeIcon">🌙</span><span id="themeLabel">Dark</span></button>
+        <select id="topLanguage" aria-label="Language">
+          <option value="en">English</option><option value="hi">हिंदी</option><option value="mr">मराठी</option>
+        </select>
+        <button class="icon-btn" id="notificationsBtn" title="Notifications">♧ <i class="dot"></i></button>
+        <button class="profile-mini" id="profileBtn"><span class="avatar">👩🏽‍🌾</span><span id="topUser">Guest User<small>Welcome</small></span>⌄</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="welcomeScreen" class="welcome-layout">
+        <div class="welcome-hero">
+          <div class="hero-badge">✦ Rural India, stronger together</div>
+          <h1>Opportunities for every<br><em>rural dream.</em></h1>
+          <p>Discover government schemes, jobs, learning, markets and practical tools — personalized for your life and your community.</p>
+          <div class="hero-points"><span>✓ Role-based services</span><span>✓ Language-friendly</span><span>✓ Designed for rural needs</span></div>
+          <div class="hero-art">
+            <div class="sun"></div><div class="hill hill1"></div><div class="hill hill2"></div>
+            <div class="field field1"></div><div class="field field2"></div><div class="field field3"></div>
+            <div class="farmhouse">🏡</div><div class="tree tree1">🌳</div><div class="tree tree2">🌴</div>
+          </div>
+          <div class="hero-footer"><span>🌱</span> Building better futures, one village at a time.</div>
+        </div>
+        <div class="welcome-panel">
+          <div class="eyebrow">GET STARTED</div>
+          <h2 id="welcomeTitle">Welcome to Gramsaarthi</h2>
+          <p class="muted">Choose your language and sign in to get services made for you.</p>
+          <label class="field-label" for="welcomeLanguage">Preferred language</label>
+          <select id="welcomeLanguage" class="field">
+            <option value="en">English</option><option value="hi">हिंदी</option><option value="mr">मराठी</option>
+          </select>
+          <div class="welcome-preview">
+            <span class="preview-icon">🌾</span>
+            <div><strong>Your village. Your opportunities.</strong><small>Useful information, all in one place.</small></div>
+          </div>
+          <button class="btn btn-primary btn-full" id="startBtn">Continue →</button>
+          <div class="divider-text"><span>MADE FOR RURAL INDIA</span></div>
+          <div class="mini-features"><span>🛡️ Privacy-aware</span><span>🗣️ Voice-friendly design</span></div>
+        </div>
+      </section>
+
+      <section id="loginScreen" class="auth-layout hidden">
+        <div class="auth-card">
+          <button class="back-link" id="backWelcome">← Back</button>
+          <div class="auth-icon">🌿</div><div class="eyebrow">YOUR GRAMSAARTHI ACCOUNT</div>
+          <h2 id="loginHeading">Welcome back!</h2><p class="muted">Sign in with your mobile number to continue.</p>
+          <div id="loginForm">
+            <label class="field-label" for="mobile">Mobile number</label>
+            <div class="phone-field"><span>🇮🇳 +91</span><input id="mobile" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number"></div>
+            <button class="btn btn-primary btn-full" id="sendOtpBtn">Send demo OTP</button>
+            <p class="tiny-note">Prototype mode: no SMS is sent. Use the demo OTP shown on screen.</p>
+            <div class="auth-switch">New to Gramsaarthi? <button id="registerLink" class="text-btn">Create account</button></div>
+          </div>
+          <div id="otpForm" class="hidden">
+            <div class="demo-otp" id="otpHint">Demo OTP: 123456</div>
+            <label class="field-label" for="otp">Enter 6-digit OTP</label><input id="otp" class="field" inputmode="numeric" maxlength="6" placeholder="123456">
+            <button class="btn btn-primary btn-full" id="verifyOtpBtn">Verify and continue</button>
+            <button class="text-btn" id="changeNumber">Change mobile number</button>
+          </div>
+          <div id="registerForm" class="hidden">
+            <label class="field-label" for="fullName">Full name</label><input id="fullName" class="field" placeholder="Enter your name">
+            <label class="field-label" for="regMobile">Mobile number</label><input id="regMobile" class="field" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number">
+            <label class="field-label" for="age">Age</label><input id="age" class="field" type="number" min="13" max="110" placeholder="Your age">
+            <label class="field-label">Choose your role</label>
+            <div id="roleCardGrid" class="role-card-grid" role="group" aria-label="Choose your role"></div>
+            <button class="btn btn-primary btn-full" id="createAccountBtn">Create demo account →</button>
+            <button class="text-btn" id="loginLink">Already registered? Sign in</button>
+          </div>
+          <div id="authError" class="error-msg hidden"></div>
+        </div>
+      </section>
+
+      <section id="appScreen" class="app-layout hidden">
+        <aside class="sidebar">
+          <div class="sidebar-label">WORKSPACE</div>
+          <button class="nav-item active" data-page="dashboard"><span>▦</span> Dashboard</button>
+          <button class="nav-item" data-page="schemes"><span>◈</span> Government schemes</button>
+          <button class="nav-item" data-page="market"><span>↗</span> Market prices</button>
+          <button class="nav-item" data-page="community"><span>◎</span> Community feed</button>
+          <button class="nav-item" data-page="services"><span>⌖</span> Nearby services</button>
+          <button class="nav-item" data-page="opportunities"><span>✧</span> Opportunities</button>
+          <button class="nav-item" data-page="profile"><span>♙</span> My profile</button>
+          <div class="sidebar-bottom"><div class="help-card"><span>💬</span><strong>Need a hand?</strong><small>Ask the Gramsaarthi assistant.</small><button id="assistantBtn">Open assistant →</button></div><button class="nav-item" id="logoutBtn"><span>↪</span> Sign out</button></div>
+        </aside>
+        <div class="main-content">
+          <div class="mobile-nav" id="mobileNav">
+            <button class="active" data-page="dashboard">Home</button><button data-page="schemes">Schemes</button><button data-page="market">Market</button><button data-page="opportunities">Explore</button>
+          </div>
+          <div class="page-heading">
+            <div><div class="eyebrow" id="pageEyebrow">YOUR PERSONAL WORKSPACE</div><h1 id="pageTitle">Good morning!</h1><p id="pageSubtitle">Here is what is happening in your world today.</p></div>
+            <button class="btn btn-outline" id="switchRoleBtn">⇄ Change role</button>
+          </div>
+          <div id="pageContent"></div>
+          <footer class="app-footer"><span>🌿 GRAMSAARTHI</span><span>Prototype • Sample data may not be live</span><span>Privacy · Accessibility · Help</span></footer>
+        </div>
+      </section>
+    </main>
+    <div id="toast" class="toast hidden"></div>
+    <div id="modalOverlay" class="modal-overlay hidden">
+      <div class="modal"><button class="modal-close" id="modalClose">×</button><div id="modalBody"></div></div>
+    </div>
+    <div id="assistantPanel" class="assistant-panel hidden">
+      <div class="assistant-head"><span>🤖 Gramsaarthi Assistant</span><button id="closeAssistant">×</button></div>
+      <div id="assistantChat" class="assistant-chat"><div class="assistant-message">Namaste! I am Gramsaarthi Assistant. Ask me about schemes, jobs, farming, livestock, fisheries, business, crafts, courses or local services.</div></div>
+      <div class="assistant-quick"><button data-ask="schemes">Find schemes</button><button data-ask="jobs">Find opportunities</button><button data-ask="crops">Crop advice</button></div>
+      <div id="assistantReply" class="assistant-reply hidden"></div>
+      <form id="assistantForm"><input id="assistantInput" placeholder="Type your question…"><button>➤</button></form>
+      <small class="tiny-note">Demo assistant: replies are sample guidance, not official advice.</small>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
